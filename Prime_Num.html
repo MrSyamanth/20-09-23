@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Prime(num) {
+        if (num <= 1) {
+            return false;
+        }
+        if (num <= 3) {
+            return true;
+        }
+        if (num % 2 === 0 || num % 3 === 0) {
+            return false;
+        }
+        let i = 5;
+        while (i * i <= num) {
+            if (num % i === 0 || num % (i + 2) === 0) {
+                return false;
+            }
+            i += 6;
+        }
+        return true;
+    }
+
+    function printPrime(range) {
+        for (let num = 2; num <= range; num++) {
+            if (Prime(num)) {
+                console.log(num);
+            }
+        }
+    }
+
+    const maxRange = parseInt(prompt("Enter the maximum range:"));
+    console.log('Prime numbers up to ' +maxRange);
+    printPrime(maxRange);
+
+</script>
+
+</html>
